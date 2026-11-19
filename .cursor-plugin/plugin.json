@@ -1,0 +1,32 @@
+{
+  "name": "postory",
+  "displayName": "Postory",
+  "version": "0.2.0",
+  "description": "Draft, schedule and publish X, Threads and Bluesky posts, answer replies and read your stats through Postory's MCP server.",
+  "author": {
+    "name": "Postory"
+  },
+  "homepage": "https://postory.io/features/mcp",
+  "repository": "https://github.com/vadympetryshyn/postory-agent",
+  "license": "UNLICENSED",
+  "logo": "assets/logo.png",
+  "keywords": [
+    "postory",
+    "social media",
+    "x",
+    "twitter",
+    "threads",
+    "bluesky",
+    "scheduling",
+    "social media scheduler",
+    "analytics",
+    "mcp"
+  ],
+  "category": "integrations",
+  "tags": [
+    "social media",
+    "scheduling",
+    "mcp"
+  ],
+  "mcpServers": "./.mcp.json"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "postory",
+  "description": "Postory's agent kit: the Postory MCP server, its skill and slash commands.",
+  "owner": {
+    "name": "Postory",
+    "url": "https://postory.io"
+  },
+  "plugins": [
+    {
+      "name": "postory",
+      "source": "./",
+      "description": "Draft, schedule and publish X, Threads and Bluesky posts through Postory."
+    }
+  ]
+}

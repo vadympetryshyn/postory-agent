@@ -1,0 +1,20 @@
+{
+  "name": "postory",
+  "interface": {
+    "displayName": "Postory"
+  },
+  "plugins": [
+    {
+      "name": "postory",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

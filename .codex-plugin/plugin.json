@@ -1,0 +1,48 @@
+{
+  "name": "postory",
+  "version": "0.2.0",
+  "description": "Draft, schedule and publish X, Threads and Bluesky posts, answer replies and read your stats through Postory's MCP server.",
+  "author": {
+    "name": "Postory",
+    "url": "https://postory.io"
+  },
+  "homepage": "https://postory.io/features/mcp",
+  "repository": "https://github.com/vadympetryshyn/postory-agent",
+  "license": "UNLICENSED",
+  "keywords": [
+    "postory",
+    "social media",
+    "x",
+    "twitter",
+    "threads",
+    "bluesky",
+    "scheduling",
+    "social media scheduler",
+    "analytics",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Postory",
+    "shortDescription": "Schedule X, Threads and Bluesky posts",
+    "longDescription": "Draft, schedule and publish posts on X, Threads and Bluesky, attach images, see your calendar, answer replies and read your post stats in Postory.",
+    "developerName": "Postory",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://postory.io",
+    "privacyPolicyURL": "https://postory.io/privacy-policy",
+    "termsOfServiceURL": "https://postory.io/terms",
+    "defaultPrompt": [
+      "Draft 3 posts for X, Threads and Bluesky",
+      "What is on my calendar this week?",
+      "How did my posts do this month?"
+    ],
+    "brandColor": "#C6F24E",
+    "composerIcon": "./assets/logo.png",
+    "logo": "./assets/logo.png"
+  }
+}

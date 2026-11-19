@@ -1,0 +1,12 @@
+{
+  "name": "postory",
+  "version": "0.2.0",
+  "description": "Draft, schedule and publish X, Threads and Bluesky posts, answer replies and read your stats through Postory's MCP server. Bundles the postory skill.",
+  "mcpServers": {
+    "postory": {
+      "httpUrl": "https://postory.io/mcp",
+      "description": "Postory's hosted MCP server. Gemini CLI opens a browser to sign in to Postory on first use."
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}

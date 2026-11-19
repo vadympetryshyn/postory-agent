@@ -1,0 +1,28 @@
+{
+  "name": "postory",
+  "description": "Postory's agent kit: the Postory MCP server, its skill and commands.",
+  "owner": {
+    "name": "Postory",
+    "url": "https://postory.io"
+  },
+  "plugins": [
+    {
+      "name": "postory",
+      "description": "Draft, schedule and publish X, Threads and Bluesky posts through Postory.",
+      "category": "productivity",
+      "source": {
+        "type": "local",
+        "path": "./"
+      },
+      "homepage": "https://postory.io/features/mcp",
+      "keywords": [
+        "postory",
+        "social media scheduler",
+        "schedule x threads bluesky posts"
+      ],
+      "domains": [
+        "postory.io"
+      ]
+    }
+  ]
+}
