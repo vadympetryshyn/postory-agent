@@ -1,5 +1,5 @@
 {
-  "name": "postory",
+  "name": "postory-agent",
   "description": "Postory's agent kit: the Postory MCP server, its skill and commands.",
   "owner": {
     "name": "Postory",

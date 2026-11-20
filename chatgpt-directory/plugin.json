@@ -1,0 +1,117 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "postory",
+  "version": "1.0.0",
+  "description": "Social media management for X, Threads, Bluesky and LinkedIn: draft, schedule and publish, a content calendar, a media library, post analytics, and reading and answering replies.",
+  "author": {
+    "name": "Postory",
+    "url": "https://postory.io"
+  },
+  "homepage": "https://postory.io/features/mcp",
+  "keywords": [
+    "social media",
+    "scheduling",
+    "X",
+    "Threads",
+    "Bluesky",
+    "LinkedIn"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Postory",
+        "shortDescription": "Social media management",
+        "longDescription": "Postory is social media management for X (Twitter), Threads, Bluesky and LinkedIn. Connect it to ChatGPT and ask in plain words: ChatGPT works with your real accounts, drafts, calendar, media library and post analytics.\n\nWhat you can do\n- Write drafts and threads and save them to Postory. One draft can go to several accounts, and each network's limits are checked for you.\n- Schedule, re-time and cancel posts, or publish now on X, Threads, Bluesky and LinkedIn. ChatGPT shows you the post first and publishes immediately only after your yes, or you can require approval in Postory instead.\n- See your week on a calendar card: drafts, scheduled and published posts across all your accounts.\n- Use your media library: add images or video to a post from the chat, a link or the library, with alt text.\n- Review post analytics: engagement, your top and weakest posts, and your best days and hours to post.\n- Search your archive of posts and replies, and answer replies people left on your posts (X, Threads and Bluesky), up to 10 at a time, each batch previewed before it is sent.\n- Start from ready-made prompts: daily brief, weekly review, plan the week, reply inbox.\n\nResults appear as interactive cards in the chat: posts, calendar, media, replies and performance.\n\nSafety and control\n- You choose the permissions on Postory's consent screen. Drafts are always on; publishing, reading your post archive and importing your history can each be turned off.\n- The server enforces posting limits per account: at least 10 minutes between posts and at most 30 in 24 hours; replies at least 1 minute apart and at most 50 in 24 hours.\n- Every call is listed on the AI apps page in Postory, where you can pause or disconnect ChatGPT at any time.\n\nNeeds a free Postory account with at least one connected social account. LinkedIn takes posts only: no first comments, replies or threads.",
+        "developerName": "Postory",
+        "category": "Productivity",
+        "websiteURL": "https://postory.io",
+        "supportURL": "https://postory.io/contact",
+        "privacyPolicyURL": "https://postory.io/privacy-policy",
+        "termsOfServiceURL": "https://postory.io/terms",
+        "defaultPrompt": [
+          "Draft three posts about my launch and schedule them for next week",
+          "What is on my content calendar this week?",
+          "How did my posts perform in the last 30 days?"
+        ],
+        "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Save a draft for a connected account",
+              "prompt": "Write a short post announcing our new pottery workshop and save it as a draft on my Bluesky account.",
+              "tools_triggered": [
+                "list_accounts",
+                "create_draft"
+              ],
+              "expected_behavior": "A draft is saved on the connected Bluesky account and shown as a post card; nothing is published."
+            },
+            {
+              "description": "Schedule a post for a later time",
+              "prompt": "Schedule a post for 10:00 next Saturday on my Bluesky account: Fresh batch of mugs out of the kiln on Saturday.",
+              "tools_triggered": [
+                "list_accounts",
+                "create_draft"
+              ],
+              "expected_behavior": "The post is scheduled for 10:00 next Saturday in the user's time zone and shown as a scheduled post card; the answer states the account and time."
+            },
+            {
+              "description": "Read the content calendar",
+              "prompt": "What is on my Postory content calendar for the next two weeks?",
+              "tools_triggered": [
+                "list_scheduled"
+              ],
+              "expected_behavior": "A calendar card lists drafts and scheduled posts with their accounts and times; the answer summarises it in a sentence."
+            },
+            {
+              "description": "Review recent posts and their performance",
+              "prompt": "Show my latest Bluesky posts and how they performed.",
+              "tools_triggered": [
+                "list_posts",
+                "get_performance_summary"
+              ],
+              "expected_behavior": "Recent posts appear in a card with their engagement numbers, and the answer names the top post."
+            },
+            {
+              "description": "Browse the media library",
+              "prompt": "Show the pictures in my Postory media library.",
+              "tools_triggered": [
+                "list_media_library"
+              ],
+              "expected_behavior": "A media grid card shows the library files; the answer says how many files there are."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Buying credits or changing a plan is not offered inside ChatGPT",
+              "prompt": "Upgrade my Postory plan and buy more credits for me."
+            },
+            {
+              "description": "A network Postory does not support",
+              "prompt": "Publish this post to my Instagram account right now: New mugs on Saturday."
+            },
+            {
+              "description": "Bulk deletion of a user's posts is not offered",
+              "prompt": "Delete every post on my Bluesky account."
+            }
+          ]
+        },
+        "commerce": false
+      },
+      "publication": {
+        "countries": [
+          "US",
+          "GB",
+          "CA",
+          "AU",
+          "DE",
+          "FR",
+          "PL",
+          "UA"
+        ],
+        "release_notes": "First release: draft, schedule and publish on X, Threads, Bluesky and LinkedIn, a content calendar, a media library, post analytics, and replies."
+      }
+    }
+  }
+}

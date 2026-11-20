@@ -17,6 +17,20 @@ Install the Postory plugin for this agent from https://github.com/vadympetryshyn
 The agent picks the right commands for itself. When it is done, sign in to Postory in the browser once (the agent tells you
 how); you need a free [Postory](https://postory.io) account with your social accounts connected.
 
+## Sign in once
+
+After the install your agent lists the Postory plugin (or the `postory` server) as needing sign-in or authentication.
+That is normal: sign in to Postory once in the browser and pick what your agent may do.
+
+- **Claude Code:** `/mcp` → `plugin:postory:postory` → Authenticate (or ask a Postory question: the agent gives you
+  the sign-in link).
+- **Codex:** run `codex mcp login postory` in a terminal (it opens the browser), then start a new Codex session.
+- **Cursor:** Settings → MCP → postory → sign in.
+- **Gemini CLI:** `/mcp auth postory`.
+- **Any other agent:** sign in to the `postory` MCP server your agent lists as needing authentication.
+
+If you ask a Postory question before signing in, your agent tells you the same step.
+
 ## Where it works
 
 | Your agent | What you get |
@@ -44,19 +58,19 @@ see the step-by-step guides at <https://postory.io/features/mcp>.
 
 ```sh
 /plugin marketplace add vadympetryshyn/postory-agent
-/plugin install postory@postory
+/plugin install postory@postory-agent
 ```
 
-Then `/mcp` → `plugin:postory:postory` → Authenticate, and sign in to Postory.
+Then sign in once ([above](#sign-in-once)).
 
 ### Codex
 
 ```sh
 codex plugin marketplace add vadympetryshyn/postory-agent
-codex plugin add postory@postory
+codex plugin add postory@postory-agent
 ```
 
-Then `codex mcp login postory` and sign in to Postory. Only the connection, without the plugin:
+Then sign in once ([above](#sign-in-once)): `codex mcp login postory`, then a new session. Only the connection, without the plugin:
 `codex mcp add postory --url https://postory.io/mcp`.
 
 ### Cursor
@@ -101,17 +115,34 @@ server.
 The Postory connection (tools, prices, rules) is always current; only the skill and the slash commands are copied to your
 machine.
 
-- **Claude Code:** `claude plugin marketplace update postory`, then `claude plugin update postory@postory` (restart the
-  session), or turn on auto-update for it (`/plugin` → Marketplaces → postory → auto-update; off by default for
-  third-party marketplaces).
-- **Codex:** `codex plugin marketplace upgrade postory`, then `codex plugin add postory@postory`.
+- **Claude Code:** `claude plugin marketplace update postory-agent`, then `claude plugin update postory@postory-agent`
+  (restart the session), or turn on auto-update for it (`/plugin` → Marketplaces → postory-agent → auto-update; off by
+  default for third-party marketplaces), or keep it current automatically (below).
+- **Codex:** `codex plugin marketplace upgrade postory-agent`, then `codex plugin add postory@postory-agent`.
 - **Cursor:** `git -C ~/.cursor/plugins/local/postory pull`, then reload the window.
 - **Gemini CLI:** `gemini extensions update postory` (or install with `--auto-update`), then restart the session.
 - **Grok Build and other agents:** update the plugin or skill the way your agent updates its sources.
 
+### Claude Code: keep it current automatically
+
+Put this in `~/.claude/settings.json` (or a project's `.claude/settings.json`). Claude Code then refreshes the
+marketplace and updates the plugin in the background after startup:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "postory-agent": {
+      "source": { "source": "github", "repo": "vadympetryshyn/postory-agent" },
+      "autoUpdate": true
+    }
+  },
+  "enabledPlugins": { "postory@postory-agent": true }
+}
+```
+
 ## Without a plugin
 
-The HTTP API (`https://postory.io/docs/api`, a `pst_` key from Postory → MCP → API keys) reaches the same operations
+The HTTP API (`https://postory.io/docs/api`, a `pst_` key from Postory Settings → API keys) reaches the same operations
 with the same permissions, limits and credit prices.
 
 ## For maintainers
