@@ -1,8 +1,8 @@
 {
   "name": "postory",
   "displayName": "Postory",
-  "version": "0.2.0",
-  "description": "Draft, schedule and publish X, Threads and Bluesky posts, answer replies and read your stats through Postory's MCP server.",
+  "version": "0.2.17",
+  "description": "Draft, schedule and publish X, Threads, Bluesky and LinkedIn posts, answer replies and read your stats through Postory's MCP server.",
   "author": {
     "name": "Postory"
   },
@@ -17,6 +17,7 @@
     "twitter",
     "threads",
     "bluesky",
+    "linkedin",
     "scheduling",
     "social media scheduler",
     "analytics",

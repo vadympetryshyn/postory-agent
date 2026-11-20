@@ -1,6 +1,6 @@
 # Postory agent kit
 
-[Postory](https://postory.io) for AI agents: draft, schedule and publish X, Threads and Bluesky posts, attach images,
+[Postory](https://postory.io) for AI agents: draft, schedule and publish X, Threads, Bluesky and LinkedIn posts, attach images,
 see your calendar, answer replies and read your post stats from Claude Code, Cursor, Codex, Gemini CLI, Grok Build or
 any agent that reads skills.
 
@@ -87,6 +87,18 @@ server.
 Add a custom connector with the URL `https://postory.io/mcp` and sign in to Postory. Step-by-step guides per app:
 <https://postory.io/features/mcp>.
 
+## Update
+
+The server (tools, prices, rules) is always current; only the skill and the slash commands are copied to your machine.
+
+- **Claude Code:** `claude plugin marketplace update postory`, then `claude plugin update postory@postory` (restart the
+  session), or turn on auto-update for it (`/plugin` → Marketplaces → postory → auto-update; off by default for
+  third-party marketplaces).
+- **Codex:** `codex plugin marketplace upgrade postory`, then `codex plugin add postory@postory`.
+- **Cursor:** `git -C ~/.cursor/plugins/local/postory pull`, then reload the window.
+- **Gemini CLI:** `gemini extensions update postory` (or install with `--auto-update`), then restart the session.
+- **Grok Build and other agents:** update the plugin or skill the way your agent updates its sources.
+
 ## Without MCP
 
 The HTTP API (`https://postory.io/docs/api`, a `pst_` key from Postory → MCP → API keys) reaches the same operations
@@ -94,7 +106,8 @@ with the same permissions, limits and credit prices.
 
 ## Where this comes from
 
-This repository is published from the `agent/` folder of Postory's source by `back/scripts/publish_agent_repo.sh`;
+This repository is published from the `agent/` folder of Postory's source by `back/scripts/publish_agent_repo.sh`,
+which stamps each manifest's version with the count of commits to `agent/`, so every change is a new version;
 change it there. The commands are generated from the server's MCP prompts (`back/app/mcp/prompts.py`) by
 `back/scripts/build_agent_bundle.py`; never edit them by hand. After a prompt change, from the source root:
 

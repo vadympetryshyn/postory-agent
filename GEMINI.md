@@ -1,6 +1,6 @@
 # Postory
 
-The `postory` MCP server drafts, schedules and publishes the user's X, Threads and Bluesky posts and reads their
+The `postory` MCP server drafts, schedules and publishes the user's X, Threads, Bluesky and LinkedIn posts and reads their
 stats. Before writing, call `list_accounts` and `get_platform_rules`. Drafts, scheduling, rescheduling and
 cancelling need no confirmation. **Never publish without the user's yes in this conversation:** `preflight_publish`,
 show the preview and cost, and only after their yes call `publish_draft` with its token; an `approval_url` goes to

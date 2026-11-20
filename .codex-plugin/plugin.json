@@ -1,7 +1,7 @@
 {
   "name": "postory",
-  "version": "0.2.0",
-  "description": "Draft, schedule and publish X, Threads and Bluesky posts, answer replies and read your stats through Postory's MCP server.",
+  "version": "0.2.17",
+  "description": "Draft, schedule and publish X, Threads, Bluesky and LinkedIn posts, answer replies and read your stats through Postory's MCP server.",
   "author": {
     "name": "Postory",
     "url": "https://postory.io"
@@ -16,6 +16,7 @@
     "twitter",
     "threads",
     "bluesky",
+    "linkedin",
     "scheduling",
     "social media scheduler",
     "analytics",
@@ -25,8 +26,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Postory",
-    "shortDescription": "Schedule X, Threads and Bluesky posts",
-    "longDescription": "Draft, schedule and publish posts on X, Threads and Bluesky, attach images, see your calendar, answer replies and read your post stats in Postory.",
+    "shortDescription": "Schedule X, Threads, Bluesky and LinkedIn posts",
+    "longDescription": "Draft, schedule and publish posts on X, Threads, Bluesky and LinkedIn, attach images, see your calendar, answer replies and read your post stats in Postory.",
     "developerName": "Postory",
     "category": "Productivity",
     "capabilities": [
