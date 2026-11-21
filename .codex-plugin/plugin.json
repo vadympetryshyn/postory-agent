@@ -1,6 +1,6 @@
 {
   "name": "postory",
-  "version": "0.2.24",
+  "version": "0.2.25",
   "description": "Draft, schedule and publish X, Threads, Bluesky and LinkedIn posts, answer replies and read your stats through Postory's MCP server.",
   "author": {
     "name": "Postory",
