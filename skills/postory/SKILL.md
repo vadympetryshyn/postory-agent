@@ -72,7 +72,7 @@ Each tool's own description has its arguments and answers; this skill says which
    turn. Live only on `status: success` (give the `permalink`); otherwise check `get_publish_status` before saying
    anything went out.
 9. **Replies.** `list_received_replies` reads the replies people left (one by its author or words). To answer:
-   `get_replies_to_answer` → write one answer per reply in the user's voice (its examples) → show them →
+   `get_replies_to_answer` → write one answer per reply, using that reply's examples as the guide to wording → show them →
    `answer_replies` without a token (preview and cost) → the user's yes → `answer_replies` with the token.
 10. **Stats and history.** `get_performance_summary` for a period (totals, change, top posts, best hours),
     `list_posts` to rank posts, `get_post_stats` for one post; by meaning: `search_posts`, `search_replies`,

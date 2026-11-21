@@ -1,6 +1,6 @@
 # Postory plugin for AI coding agents
 
-**Plan, draft, schedule and publish your social media posts from your AI coding agent.** This is the plugin that connects
+**Run your social media with your AI coding agent.** This is the plugin that connects
 [Postory](https://postory.io) to Claude Code, Codex, Cursor, Gemini CLI, Grok Build and any other agent that reads
 skills. Ask in plain words ("write three posts about our launch and schedule them next week") and your agent does it in
 your Postory account on X, Threads, Bluesky and LinkedIn: drafts, scheduling, images, your calendar, replies and post
