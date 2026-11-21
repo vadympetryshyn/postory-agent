@@ -75,12 +75,13 @@ Each tool's own description has its arguments and answers; this skill says which
    `get_replies_to_answer` → write one answer per reply, using that reply's examples as the guide to wording → show them →
    `answer_replies` without a token (preview and cost) → the user's yes → `answer_replies` with the token.
 10. **Stats and history.** `get_performance_summary` for a period (totals, change, top posts, best hours),
-    `list_posts` to rank posts, `get_post_stats` for one post; by meaning: `search_posts`, `search_replies`,
-    `search_replies_by_parent` (posts the user replied to). Reads refresh stale data themselves, free.
+    `list_posts` to rank posts, `get_post_stats` for one post; by words: `search_posts`, `search_replies`,
+    `search_replies_by_parent` (posts the user replied to). A read of data over an hour old refreshes the account
+    first for 1 credit, and its `freshness` says so; under an hour old it is free.
     `views_available: false`: that network shows no view counts. `get_archive_summary`: what Postory holds per
-    account and how fresh. Older history only on the user's ask (a full import, Rules); `get_import_run` follows a
-    run, `list_import_runs` lists them, `cancel_import` stops one; `update_import_settings` turns automatic updates
-    on or off, only on the user's word.
+    account and how fresh. `preflight_import` prices a refresh, `start_import` runs one (1 credit, 0 within the
+    hour); `get_import_run` follows a run, `list_import_runs` lists them, `cancel_import` stops one (it then costs
+    0); `update_import_settings` is retired (no automatic updates).
 11. **Webhooks** (signed events to the user's URL: published, failed, scheduled, reply received, import done):
     `create_webhook` (its `whsec_` secret shows once), then `test_webhook`; `list_webhooks`, `get_webhook`,
     `list_webhook_deliveries`, `update_webhook`, `rotate_webhook_secret`, `delete_webhook`.
@@ -93,7 +94,7 @@ Each tool's own description has its arguments and answers; this skill says which
 - Per account, posts go 10+ minutes apart and at most 30 a day; a refusal names `next_allowed_at`, which the post
   can be scheduled for.
 - Credits: each post that goes out (per account; a scheduled one when it is sent), each reply sent, an AI image, and
-  X imports and X auto-updates; Threads and Bluesky imports are free. A full import is `preflight_import` → cost →
-  the user's yes → `start_import`.
+  each refresh of an account's data (1 credit on every network; reads and `start_import` within an hour of the
+  last refresh are free).
 - Pass an `idempotency_key` (a UUID) on a write you may retry.
 - Where the app shows no Postory card (a terminal or editor), answer with the facts: counts, names, times, links.

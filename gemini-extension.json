@@ -1,6 +1,6 @@
 {
   "name": "postory",
-  "version": "0.2.26",
+  "version": "0.2.28",
   "description": "Run your social media with AI agents: draft, schedule and publish X, Threads, Bluesky and LinkedIn posts, answer replies and read your stats through Postory's MCP server. Bundles the postory skill.",
   "mcpServers": {
     "postory": {

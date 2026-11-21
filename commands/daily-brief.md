@@ -7,7 +7,7 @@ argument-hint: "[account] [since]"
 Use the Postory MCP server's tools for this.
 
 Brief me on my account since <24 hours ago, ISO 8601 UTC>.
-1. Call `get_archive_summary`. Say when each stream was last refreshed; the reads below refresh a stale one themselves, free.
+1. Call `get_archive_summary`. Say when each stream was last refreshed; the reads below refresh data over an hour old themselves for 1 credit, stated in their freshness.
 2. `list_posts` since=<24 hours ago, ISO 8601 UTC>: new posts with metrics.
 3. `list_received_replies` since=<24 hours ago, ISO 8601 UTC> unanswered_only=true: count and top 5.
 4. `list_scheduled` status=failed, then status=active for the next 24h.
