@@ -10,7 +10,8 @@ metadata:
 # Postory
 
 Postory holds the user's X, Threads, Bluesky and LinkedIn accounts, drafts, calendar and media library, and post stats
-for X, Threads and Bluesky (an account on another network has no stats, import or replies: `list_accounts` says).
+for X, Threads and Bluesky (an account on another network has no stats, data refresh or replies: `list_accounts`
+says).
 
 **Connect.** The MCP server `https://postory.io/mcp` (this plugin adds it). On first use the user signs in to Postory
 in the browser and picks what you may do; `get_me` lists what you hold.
@@ -41,7 +42,9 @@ Each tool's own description has its arguments and answers; this skill says which
    10, each its own `parts`, and `scheduled_at`, accounts, labels or first comment where they differ), never one
    call per post. Too long for one post: a thread of `parts`, never a cut. Drafts reach no one, so save them
    without asking; the user edits them in Postory too. Helpers: `get_platform_rules` (what a post on a network may
-   hold), `get_voice_profile` (how the user writes), `search_mentions` (the exact handle to @-mention).
+   hold), `get_voice_profile` (the user's writing profile: who they are and their topics, and their own writing
+   instructions, which you follow; its counters and best recent posts are examples), `search_mentions` (the exact
+   handle to @-mention).
 3. **Edit and remove.** `list_drafts` finds saved posts, `get_draft` reads one whole, `update_draft` changes it (send
    back every part to keep, with its `id`). "Remove" or "delete" means `archive_draft` (restorable from Postory's
    Archive); `delete_draft` only when the user says permanently; several: `bulk_drafts`. A scheduled post:
@@ -72,16 +75,18 @@ Each tool's own description has its arguments and answers; this skill says which
    turn. Live only on `status: success` (give the `permalink`); otherwise check `get_publish_status` before saying
    anything went out.
 9. **Replies.** `list_received_replies` reads the replies people left (one by its author or words). To answer:
-   `get_replies_to_answer` → write one answer per reply, using that reply's examples as the guide to wording → show them →
-   `answer_replies` without a token (preview and cost) → the user's yes → `answer_replies` with the token.
+   `get_replies_to_answer` → write one answer per reply: follow its `writing_profile` when not empty, and that
+   reply's own examples (the user's past replies); each fits the account's `limits.text_max` → show them →
+   `answer_replies` without a token (preview and cost) → the user's yes → `answer_replies` with the token. Postory's
+   own chat (Home and Studio on postory.io) also answers comments: there the user sends them by clicking its card.
 10. **Stats and history.** `get_performance_summary` for a period (totals, change, top posts, best hours),
     `list_posts` to rank posts, `get_post_stats` for one post; by words: `search_posts`, `search_replies`,
     `search_replies_by_parent` (posts the user replied to). A read of data over an hour old refreshes the account
     first for 1 credit, and its `freshness` says so; under an hour old it is free.
     `views_available: false`: that network shows no view counts. `get_archive_summary`: what Postory holds per
-    account and how fresh. `preflight_import` prices a refresh, `start_import` runs one (1 credit, 0 within the
-    hour); `get_import_run` follows a run, `list_import_runs` lists them, `cancel_import` stops one (it then costs
-    0); `update_import_settings` is retired (no automatic updates).
+    account and how fresh. A refresh on the user's ask: `preflight_import` prices it, `start_import` runs it (the
+    same 1 credit), `get_import_run` follows it, `list_import_runs` lists past ones, `cancel_import` stops one.
+    `update_import_settings` changes nothing (no automatic updates).
 11. **Webhooks** (signed events to the user's URL: published, failed, scheduled, reply received, import done):
     `create_webhook` (its `whsec_` secret shows once), then `test_webhook`; `list_webhooks`, `get_webhook`,
     `list_webhook_deliveries`, `update_webhook`, `rotate_webhook_secret`, `delete_webhook`.
