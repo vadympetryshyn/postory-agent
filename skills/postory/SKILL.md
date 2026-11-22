@@ -44,7 +44,12 @@ Each tool's own description has its arguments and answers; this skill says which
    without asking; the user edits them in Postory too. Helpers: `get_platform_rules` (what a post on a network may
    hold), `get_voice_profile` (the user's writing profile: who they are and their topics, and their own writing
    instructions, which you follow; its counters and best recent posts are examples), `search_mentions` (the exact
-   handle to @-mention).
+   handle to @-mention). **A preset** ("use my preset Launch"): `list_presets` with its name gives the posting setup
+   the user saved in Postory: write for its `connection_ids`, within `format.max_chars` (a thread when
+   `format.thread`), in its `languages`, and follow its `instructions` as the user's own. **A skill** ("apply my
+   skill Hook first to this"): `list_skills` gives the instructions the user saved in Postory; apply them to the
+   text yourself. `write_posts` and `generate_image` take `skill` too. `save_skill` creates or changes one,
+   `delete_skill` removes one (only when the user asks).
 3. **Edit and remove.** `list_drafts` finds saved posts, `get_draft` reads one whole, `update_draft` changes it (send
    back every part to keep, with its `id`). "Remove" or "delete" means `archive_draft` (restorable from Postory's
    Archive); `delete_draft` only when the user says permanently; several: `bulk_drafts`. A scheduled post:
