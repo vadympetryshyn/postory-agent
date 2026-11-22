@@ -40,7 +40,8 @@ Each tool's own description has its arguments and answers; this skill says which
 2. **Write.** One post = one `create_draft`, every account it goes to in `connection_ids` (one draft for all of
    them); `versions` only for an account whose text differs. Several posts: ONE `create_draft` with `posts` (up to
    10, each its own `parts`, and `scheduled_at`, accounts, labels or first comment where they differ), never one
-   call per post. Too long for one post: a thread of `parts`, never a cut. Drafts reach no one, so save them
+   call per post. `post_type` picks the kind of post where an account's `list_accounts` limits list `post_types`.
+   Too long for one post: a thread of `parts`, never a cut. Drafts reach no one, so save them
    without asking; the user edits them in Postory too. Helpers: `get_platform_rules` (what a post on a network may
    hold), `get_voice_profile` (the user's writing profile: who they are and their topics, and their own writing
    instructions, which you follow; its counters and best recent posts are examples), `search_mentions` (the exact
