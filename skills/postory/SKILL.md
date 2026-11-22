@@ -101,5 +101,7 @@ Each tool's own description has its arguments and answers; this skill says which
 - Credits: each post that goes out (per account; a scheduled one when it is sent), each reply sent, an AI image, and
   each refresh of an account's data (1 credit on every network; reads and `start_import` within an hour of the
   last refresh are free).
+- A schedule answer (and `list_scheduled`) with `credits_outlook`: the balance will not pay for every queued post,
+  so those from `first_held_at` on will be held; tell the user and offer `buy_url`.
 - Pass an `idempotency_key` (a UUID) on a write you may retry.
 - Where the app shows no Postory card (a terminal or editor), answer with the facts: counts, names, times, links.
