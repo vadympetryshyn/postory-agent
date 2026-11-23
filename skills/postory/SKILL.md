@@ -82,7 +82,8 @@ Each tool's own description has its arguments and answers; this skill says which
    anything went out.
 9. **Replies.** `list_received_replies` reads the replies people left (one by its author or words). To answer:
    `get_replies_to_answer` → write one answer per reply: follow its `writing_profile` when not empty, and that
-   reply's own examples (the user's past replies); each fits the account's `limits.text_max` → show them →
+   reply's own examples (the user's past replies), with its `writer_instructions` (the user's own writing
+   instructions), when not empty, over both; each fits the account's `limits.text_max` → show them →
    `answer_replies` without a token (preview and cost) → the user's yes → `answer_replies` with the token. Postory's
    own chat (Home and Studio on postory.io) also answers comments: there the user sends them by clicking its card.
 10. **Stats and history.** `get_performance_summary` for a period (totals, change, top posts, best hours),
