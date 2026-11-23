@@ -53,8 +53,9 @@ Each tool's own description has its arguments and answers; this skill says which
    `delete_skill` removes one (only when the user asks).
 3. **Edit and remove.** `list_drafts` finds saved posts, `get_draft` reads one whole, `update_draft` changes it (send
    back every part to keep, with its `id`). "Remove" or "delete" means `archive_draft` (restorable from Postory's
-   Archive); `delete_draft` only when the user says permanently; several: `bulk_drafts`. A scheduled post:
-   `cancel_scheduled` first.
+   Archive); several: `bulk_drafts`. No tool deletes for good: asked to delete permanently, tell the user only they
+   can, by hand in the Postory Archive, and give the archive_url from its answer. A scheduled post: `cancel_scheduled`
+   first.
 4. **Images.** The user's images in this chat: `attach_media_from_chat` right after `create_draft`. From their
    library: `list_media_library` (files and folders), then `attach_media_from_library`; `save_media_to_library` keeps
    a draft's file there. From a link: `attach_media_from_url`. On a draft: `update_media_alt` sets alt text,
