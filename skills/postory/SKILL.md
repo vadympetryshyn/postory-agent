@@ -1,6 +1,6 @@
 ---
 name: postory
-description: Draft, schedule and publish posts on X, Threads, Bluesky and LinkedIn through Postory — the user's Postory calendar, scheduled posts, drafts, media library and AI images, one post for several accounts, publish-now with the user's yes, answering replies, and post stats. Use when the user asks to write, plan, schedule, publish or review their social media posts, asks what is on their calendar or scheduled, or names Postory.
+description: Draft, schedule and publish posts on X, Threads, Bluesky, LinkedIn, Mastodon and Telegram through Postory — the user's Postory calendar, scheduled posts, drafts, media library and AI images, one post for several accounts, publish-now with the user's yes, answering replies, and post stats. Use when the user asks to write, plan, schedule, publish or review their social media posts, asks what is on their calendar or scheduled, or names Postory.
 license: Proprietary
 metadata:
   homepage: https://postory.io/features/mcp
@@ -9,7 +9,7 @@ metadata:
 
 # Postory
 
-Postory holds the user's X, Threads, Bluesky and LinkedIn accounts, drafts, calendar and media library, and post stats
+Postory holds the user's X, Threads, Bluesky, LinkedIn, Mastodon and Telegram accounts, drafts, calendar and media library, and post stats
 for X, Threads and Bluesky (an account on another network has no stats, data refresh or replies: `list_accounts`
 says).
 
@@ -111,5 +111,10 @@ Each tool's own description has its arguments and answers; this skill says which
   last refresh are free).
 - A schedule answer (and `list_scheduled`) with `credits_outlook`: the balance will not pay for every queued post,
   so those from `first_held_at` on will be held; tell the user and offer `buy_url`.
+- `held_for_credits` on `list_scheduled` or `get_publish_status`: deliveries still held for credits (rows marked
+  `held_for_credits: true`); offer `buy_url`; once the user has credits, `schedule_draft` each of its `deliveries`
+  again with its `post_id` AND `connection_id` and a new time (`allow_republish=true` where `republish: true`).
+  A post already published to that account is `already_published` (it names the account): schedule it again only
+  when the user asks to repost (`allow_republish=true`).
 - Pass an `idempotency_key` (a UUID) on a write you may retry.
 - Where the app shows no Postory card (a terminal or editor), answer with the facts: counts, names, times, links.

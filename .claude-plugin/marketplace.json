@@ -9,7 +9,7 @@
     {
       "name": "postory",
       "source": "./",
-      "description": "Run your social media with AI agents: draft, schedule and publish X, Threads, Bluesky and LinkedIn posts through Postory."
+      "description": "Run your social media with AI agents: draft, schedule and publish X, Threads, Bluesky, LinkedIn, Mastodon and Telegram posts through Postory."
     }
   ]
 }
