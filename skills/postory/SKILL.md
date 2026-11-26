@@ -116,5 +116,7 @@ Each tool's own description has its arguments and answers; this skill says which
   again with its `post_id` AND `connection_id` and a new time (`allow_republish=true` where `republish: true`).
   A post already published to that account is `already_published` (it names the account): schedule it again only
   when the user asks to repost (`allow_republish=true`).
+- A failed delivery with `superseded: true` (`list_scheduled`, `get_publish_status`, `get_draft`'s `schedules`, a
+  `publish_draft` retry) went out on that account later: history; never report it unsent or queue it again.
 - Pass an `idempotency_key` (a UUID) on a write you may retry.
 - Where the app shows no Postory card (a terminal or editor), answer with the facts: counts, names, times, links.
