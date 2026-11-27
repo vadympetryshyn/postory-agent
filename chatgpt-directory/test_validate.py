@@ -68,8 +68,22 @@ class ValidatorTest(unittest.TestCase):
         self.v.video_accessible("https://media.postory.test/demo.mp4")
         self.assertEqual([r.get_method() for r in calls], ["HEAD", "GET"])
         self.assertEqual(calls[1].get_header("Range"), "bytes=0-0")
+        # urllib stores header names capitalize()d: "User-agent".
+        self.assertEqual([r.get_header("User-agent") for r in calls], [self.v.USER_AGENT] * 2)
         self.assertEqual(response.read_sizes, [1])
         self.assertTrue(response.closed)
+
+    def test_video_head_sends_an_honest_user_agent(self):
+        calls = []
+
+        def open_url(request, timeout):
+            calls.append(request)
+            return Response(200)
+
+        self.v.urlopen = open_url
+        self.v.video_accessible("https://media.postory.test/demo.mp4")
+        self.assertEqual([r.get_method() for r in calls], ["HEAD"])
+        self.assertEqual(calls[0].get_header("User-agent"), "Postory-Review-Validator/1.0")
 
     def test_head_403_fails_cleanly_without_retrying(self):
         self.v.portable_schema = lambda _: None

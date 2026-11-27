@@ -24,6 +24,8 @@ import jsonschema
 
 ROOT = Path(__file__).resolve().parent
 DOCS = "https://developers.openai.com/plugins/deploy/submission"
+# The video host (Cloudflare R2) answers 403 to Python-urllib's default agent.
+USER_AGENT = "Postory-Review-Validator/1.0"
 
 
 def require(condition, message):
@@ -68,13 +70,13 @@ def portable_schema(document):
 def video_accessible(url):
     """HEAD once; only method-not-supported falls back to a one-byte GET."""
     try:
-        with urlopen(Request(url, method="HEAD"), timeout=30) as response:
+        with urlopen(Request(url, method="HEAD", headers={"User-Agent": USER_AGENT}), timeout=30) as response:
             require(200 <= response.status < 300, "Reviewer video URL is inaccessible")
     except HTTPError as exc:
         if exc.code not in (405, 501):
             raise
         exc.close()
-        with urlopen(Request(url, headers={"Range": "bytes=0-0"}), timeout=30) as response:
+        with urlopen(Request(url, headers={"Range": "bytes=0-0", "User-Agent": USER_AGENT}), timeout=30) as response:
             require(200 <= response.status < 300, "Reviewer video URL is inaccessible")
             response.read(1)  # Bound transfer even when the host ignores Range.
 

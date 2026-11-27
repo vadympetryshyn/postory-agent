@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "postory",
   "version": "1.0.0",
-  "description": "Run your social media with AI agents: draft, schedule and publish on X, Threads, Bluesky and LinkedIn, a content calendar, a media library, post analytics, and reading and answering replies.",
+  "description": "Run your social media with AI agents: draft, schedule and publish on X, Threads, Bluesky, LinkedIn, Mastodon and Telegram, with a content calendar and a media library, and post analytics and replies on X, Threads and Bluesky.",
   "author": {
     "name": "Vadym Petryshyn",
     "url": "https://postory.io"
@@ -14,14 +14,16 @@
     "X",
     "Threads",
     "Bluesky",
-    "LinkedIn"
+    "LinkedIn",
+    "Mastodon",
+    "Telegram"
   ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Postory",
         "shortDescription": "Run social media with AI",
-        "longDescription": "Postory lets ChatGPT run your social media: plan, create, schedule and publish posts on X (Twitter), Threads, Bluesky and LinkedIn. Connect it and ask in plain words: ChatGPT works with your real accounts, drafts, calendar, media library and post analytics.\n\nWhat you can do\n- Write drafts and threads and save them to Postory. One draft can go to several accounts, and each network's limits are checked for you.\n- Schedule, re-time and cancel posts, or publish now on X, Threads, Bluesky and LinkedIn. ChatGPT shows you the post first and publishes immediately only after your yes, or you can require approval in Postory instead.\n- See your week on a calendar card: drafts, scheduled and published posts across all your accounts.\n- Use your media library: add images or video to a post from the chat, a link or the library, with alt text.\n- Review post analytics: engagement, your top and weakest posts, and your best days and hours to post.\n- Search your archive of posts and replies, and answer replies people left on your posts (X, Threads and Bluesky), up to 10 at a time, each batch previewed before it is sent.\n- Start from ready-made prompts: daily brief, weekly review, plan the week, reply inbox.\n\nResults appear as interactive cards in the chat: posts, calendar, media, replies and performance.\n\nSafety and control\n- You choose the permissions on Postory's consent screen. Drafts are always on; publishing, reading your post archive and refreshing your account data can each be turned off.\n- The server enforces posting limits per account: at least 10 minutes between posts and at most 30 in 24 hours; replies at least 1 minute apart and at most 50 in 24 hours.\n- Every call is listed on the AI apps page in Postory, where you can pause or disconnect ChatGPT at any time.\n\nNeeds a Postory account with at least one connected social account. LinkedIn takes posts only: no first comments, replies or threads.",
+        "longDescription": "Postory lets ChatGPT run your social media: plan, create, schedule and publish posts on X (Twitter), Threads, Bluesky, LinkedIn, Mastodon and Telegram. Connect it and ask in plain words: ChatGPT works with your real accounts, drafts, calendar, media library and post analytics.\n\nWhat you can do\n- Write drafts and threads and save them to Postory. One draft can go to several accounts, and each network's limits are checked for you.\n- Schedule, re-time and cancel posts, or publish now on X, Threads, Bluesky, LinkedIn, Mastodon and Telegram. ChatGPT shows you the post first and publishes immediately only after your yes, or you can require approval in Postory instead.\n- See your week on a calendar card: drafts, scheduled and published posts across all your accounts.\n- Use your media library: add images or video to a post from the chat, a link or the library, with alt text on every network but Telegram.\n- Review post analytics on X, Threads and Bluesky: engagement, your top and weakest posts, and your best days and hours to post.\n- On X, Threads and Bluesky, search your archive of posts and replies, and answer replies people left on your posts, up to 10 at a time, each batch previewed before it is sent.\n- Start from ready-made prompts: daily brief, weekly review, plan the week, reply inbox.\n\nResults appear as interactive cards in the chat: posts, calendar, media, replies and performance.\n\nSafety and control\n- You choose the permissions on Postory's consent screen. Drafts are always on; publishing, reading your post archive and refreshing your account data can each be turned off.\n- The server enforces posting limits per account: at least 10 minutes between posts and at most 30 in 24 hours; replies at least 1 minute apart and at most 50 in 24 hours.\n- Every call is listed on the AI apps page in Postory, where you can pause or disconnect ChatGPT at any time.\n\nNeeds a Postory account with at least one connected social account. LinkedIn takes posts only: no first comments, replies or threads. Telegram posts go to your channel or group through Postory's bot.",
         "developerName": "Vadym Petryshyn",
         "category": "Productivity",
         "websiteURL": "https://postory.io",
@@ -98,7 +100,7 @@
           "PL",
           "UA"
         ],
-        "release_notes": "First release: draft, schedule and publish on X, Threads, Bluesky and LinkedIn, a content calendar, a media library, post analytics, and replies."
+        "release_notes": "First release: draft, schedule and publish on X, Threads, Bluesky, LinkedIn, Mastodon and Telegram, a content calendar, a media library, and post analytics and replies on X, Threads and Bluesky."
       }
     }
   }
