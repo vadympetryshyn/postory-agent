@@ -89,7 +89,8 @@ Each tool's own description has its arguments and answers; this skill says which
    own chat (Home and Studio on postory.io) also answers comments: there the user sends them by clicking its card.
 10. **Stats and history.** `get_performance_summary` for a period (totals, change, top posts, best hours),
     `list_posts` to rank posts, `get_post_stats` for one post; by words: `search_posts`, `search_replies`,
-    `search_replies_by_parent` (posts the user replied to). A read of data over an hour old refreshes the account
+    `search_replies_by_parent` (posts the user replied to). `days=N` is today and the N-1 days before on the
+    user's timezone, the same posts on every read. A read of data over an hour old refreshes the account
     first for 1 credit, and its `freshness` says so; under an hour old it is free.
     `views_available: false`: that network shows no view counts. `get_archive_summary`: what Postory holds per
     account and how fresh. A refresh on the user's ask: `preflight_import` prices it, `start_import` runs it (the
